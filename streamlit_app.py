@@ -33,7 +33,7 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
 
-    #st.write(ingredients_string.json())
+    #st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
                      values('""" + ingredients_string + """', '"""+name_on_order+"""') """
@@ -50,6 +50,6 @@ if ingredients_list:
 # New section to display fruityvice nutrition information 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+st.text(fruityvice_response.json())
 
 
